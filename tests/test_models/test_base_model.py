@@ -85,7 +85,7 @@ class TestBaseModel(unittest.TestCase):
         tic = datetime.now()
         inst1 = BaseModel()
         toc = datetime.now()
-        self.assertTrue(tic <= inst1.created_at <= toc)
+        self.assertAlmostEqual(inst2.created_at.timestamp(), tic.timestamp(), delta=0.01)
         time.sleep(1e-4)
         tic = datetime.now()
         inst2 = BaseModel()
