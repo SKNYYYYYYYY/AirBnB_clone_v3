@@ -62,7 +62,7 @@ def post_user():
 # 5
 @app_views.route('/users/<user_id>',
                  methods=['PUT'], strict_slashes=False)
-def update_amenity(user_id):
+def update_user(user_id):
     """update a amenity"""
     user = storage.get(User, user_id)
     if not user:
