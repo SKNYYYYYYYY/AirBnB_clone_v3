@@ -34,5 +34,5 @@ def bad_request(error):
 
 if __name__ == "__main__":
     hostt = getenv("HBNB_API_HOST") if getenv("HBNB_API_HOST") else "0.0.0.0"
-    portt = getenv("HBNB_API_PORT") if getenv("HBNB_API_PORT") else "5000"
+    portt = int(getenv("HBNB_API_PORT") if getenv("HBNB_API_PORT") else "5000")
     app.run(host=hostt, port=portt, threaded=True)
