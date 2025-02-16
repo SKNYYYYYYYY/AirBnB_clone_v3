@@ -22,7 +22,13 @@ def teardown_db(exception):
 @app.errorhandler(404)
 def error_404(error):
     """Error 404 response"""
-    return make_response(jsonify({"error": "Not found"}, 404))
+    return make_response(jsonify({"error": "Not found"})), 404
+
+
+@app.errorhandler(400)
+def error_400(error):
+    """Error 400 response"""
+    return make_response(jsonify({"error": error.description})), 400
 
 
 if __name__ == "__main__":
