@@ -28,8 +28,9 @@ def not_found(error):
 @app.errorhandler(400)
 def bad_request(error):
     """Error 400 response"""
-    return (jsonify({"error": error.description})), 400
-
+    if error.description == "Not a JSON":
+        return jsonify({"error": "Not a JSON"}), 400
+    return jsonify({"error": "Missing name"}), 400
 
 if __name__ == "__main__":
     hostt = getenv("HBNB_API_HOST") if getenv("HBNB_API_HOST") else "0.0.0.0"
